@@ -1,6 +1,8 @@
-span{
+h2{
     color: brown;
     background-color: burlywood;
     margin-left: 5px;
     border-radius: 2px;
+    display: inline-block;
+    font-size: 16px;
 }
