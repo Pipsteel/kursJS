@@ -1,3 +1,6 @@
+var li = document.createElement('li');
+var inputValue = document.getElementById('toDoEl').value;
+
 var list = document.querySelector('ul');
 list.addEventListener('click', function (ev){
     if(ev.target.tagName === "H2"){
@@ -8,44 +11,50 @@ list.addEventListener('click', function (ev){
 }, false);
 
 function newElement() {
-    var li = document.createElement('li');
-    var inputValue = document.getElementById('toDoEl').value;
     var t = document.createTextNode(inputValue);
-    li.appendChild(t);
-    if(inputValue == "") {
-        alert("input smth");
-    }else{
-        document.getElementById('list').appendChild(li);
-    }
-    document.getElementById('toDoEl').value = "";
+    console.log(inputValue)
     var del = document.createElement('H2');
     var txt = document.createTextNode("X");
+    var list = document.getElementById('list');
+
+
+
+    li.appendChild(t);
+    if(inputValue === "") {
+        alert("input smth");
+    }else{
+        list.innerHTML += t;
+        document.getElementById('list').appendChild(li);
+    }
+    //hfhfgh
+    document.getElementById('toDoEl').value = "";
+
+
     del.className = "close";
     del.appendChild(txt);
     li.appendChild(del);
+    
 
-    let time = document.createElement('span');
-    time.innerHTML = timer(info.time);
-    li.appendChild(time)
-    /////////////////
-    function timer(){
-    var times = document.getElementById('time').value;
-    var tm = new Date(times).getTime();
-    var curent_time = new Date().getTime();
-    var perem = (tm - curent_time)/1000; 
-    if (seconds_left < 0) {
-        return `You are Fall!!!`
-    } else {
-        days = parseInt(perem / 86400);
-        seconds_left = sperem % 86400;
-        hours = pad(parseInt(perem / 3600));
-        minutes = pad(parseInt(perem / 60));
-        seconds = pad(parseInt(perem % 60));
-        return `${days} days ${hours} h ${minutes} m ${seconds} s left`
-    }
-    }
-    timer();
+
+    // var aim_time = document.getElementById('time').value;
+    // var tm = new Date(aim_time).getTime();
+    // var curent_time = new Date().getTime();
+    // var perem = (tm - curent_time)/1000;
+    // if(perem < 0 ){
+    //     alert('YOU LOOSE');
+    // }else{
+    //     var days = (perem / 86400);
+    //     var hours = pad(parseInt(perem / 3600));
+    //     var minutes = pad(parseInt(perem / 60));
+    //     var seconds = pad(parseInt(perem % 60));
+    //    alert(days);
+    // }
+    // var ttt = document.createElement('span');
+    // ttt.innerHTML = (days );
+    // li.appendChild(ttt);
 }
+
+
 
 var todos;
 
